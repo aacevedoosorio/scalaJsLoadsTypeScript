@@ -13,14 +13,6 @@ import scala.scalajs.js.annotation._
 
 //@JSExportTopLevel("SQLParser")
 
-//@JSImport("/Users/alejandro/Projects/scalaJsTest/src/main/resources/test.ts", "Foo")
-@js.native
-@JSImport("./test", "Foo")
-object JSFoo extends js.Object {
-  def add(a: Int, b: Int): Int = js.native
-}
-
-
 @JSExportTopLevel(name="stackstate.Parser")
 object Parser {
 
@@ -158,7 +150,11 @@ object Parser {
       case Parsed.Failure(y, in, extra) => println(s"PATERN MATCH DEFAULT $y")
     }
 
-    println(JSFoo.add(1, 5))
+    //val foo = new JSFoo()
+    //println(s"Do I get an instance of $foo")
+    println(s"This is from my testAdd Module ${JSFoo.add(1, 5)}")
+
+    println(s"This is from my uuid Module ${MyModule.someUuid}")
 
     a
   }
